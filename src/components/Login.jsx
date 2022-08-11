@@ -28,8 +28,8 @@ function Login({ setIsLoggedIn }) {
 
   const handleLogin = async () => {
     const auth = await connectAuth();
-    const user = signInWithEmailAndPassword(auth, email, password).catch(
-      (err) => alert(err.message)
+    const user = signInWithEmailAndPassword(auth, email, password)
+    .catch( err => alert(err.message)
     );
     if (user) {
       console.log(user.user);
@@ -62,10 +62,10 @@ function Login({ setIsLoggedIn }) {
       auth,
       email,
       password
-    ).catch((err) => alert(err.message));
+    ).catch(err => alert(err.message));
     //if all ok..
     if (user) {
-      console.log(user);
+      console.log(user.user);
       setIsLoggedIn(true);
     }
     //if error
